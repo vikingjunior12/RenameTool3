@@ -6,9 +6,6 @@ It includes an integrated feature for splitting PDF documents, making it particu
 This tool leverages the power of Excel to streamline the process of renaming files, enhancing productivity and accuracy in file management tasks.
 
 
-![grafik](https://github.com/vikingjunior12/RenameTool3/assets/123122329/152eb745-60a3-4cdc-93f8-1b585f9a2336)
-
-
 
 ![grafik](https://github.com/vikingjunior12/RenameTool3/assets/123122329/3ed34370-4435-40cb-b2d9-4cbfd7b540c6)
 
@@ -62,12 +59,23 @@ Denke daran, dass RenameTool3 eine Excel-Datei mit den entsprechenden Namen ben√
 
 
 
+* * *
+
+
+
+
+
+
+
+
+
+
+
 English Guide:
 
 
 
 
-* * *
 
 # Guide for RenameTool3
 
