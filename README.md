@@ -59,3 +59,56 @@ RenameTool3 ist ein Software-Tool zum Umbenennen von PDF-Dateien, das auf Daten 
 * * *
 
 Denke daran, dass RenameTool3 eine Excel-Datei mit den entsprechenden Namen benötigt, die das Fundament für das Umbenennen deiner PDF-Dokumente bildet. Stelle sicher, dass deine Excel-Datei richtig formatiert ist und dass die notwendigen Felder korrekt ausgefüllt sind. Genieße deine organisierten und systematisch umbenannten Dateien mit nur wenigen Klicks!
+
+
+
+English Guide:
+
+
+
+
+* * *
+
+# Guide for RenameTool3
+
+RenameTool3 is a software tool for renaming PDF files based on data from an Excel file. It’s designed to be user-friendly and comes with features such as PDF Auto Split to enhance the organization of your files.
+
+## Getting Started
+
+1.  **Preparing the Excel File**: Prepare an Excel file containing the names you wish to assign to your PDF files. This step is necessary for the software to retrieve the correct data.
+    
+2.  **Loading Excel Data**:
+    
+    - Click 'Browse' to load your Excel file.
+    - Select the worksheet containing your data from the 'Worksheet' dropdown menu.
+    - Choose the specific fields for renaming your PDF files from the 'Excel Data 1' and 'Excel Data 2' dropdown menus.
+3.  **File Name Preview**: You can see a preview of the new file name in the upper left corner.
+    
+
+## Customization and File Management
+
+1.  **Custom Data**: If needed, you can enter additional text in the 'Custom' field to be included in the file names.
+    
+2.  **Selecting Target Files**: Use the 'Browse' button under 'Target Files' to choose the PDF files you want to rename.
+    
+3.  **Save Path**:
+    
+    - You have the freedom to choose the storage location for your renamed files.
+    - If no location is selected, the files will be saved in the same location as the original PDFs.
+    - If you're saving the files on a service like OneDrive, a new folder named 'RenameFiles' will be created to store the renamed documents.
+
+## PDF Auto Split Function
+
+- **When to Use**: Activate 'PDF Auto Split' if you have a single PDF that needs to be split before renaming. If you have multiple PDFs ready for renaming, you can deactivate this option.
+- **How to Use**:
+    - Set the desired number of splits by selecting an option from the 'PDF Split' dropdown menu.
+    - The software will automatically split the PDF into separate files starting with the specified series.
+
+## Final Steps
+
+- After all settings have been adjusted, click the 'Rename' button to start the renaming process.
+- You will find the renamed files in a folder, either at the desired storage location or at the place where you loaded the files.
+
+* * *
+
+Remember that RenameTool3 requires an Excel file with the appropriate names as the foundation for renaming your PDF documents. Ensure that your Excel file is properly formatted and that the necessary fields are filled out correctly. Enjoy your organized and systematically renamed files with just a few clicks!
