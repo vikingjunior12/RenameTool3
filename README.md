@@ -120,3 +120,31 @@ RenameTool3 is a software tool for renaming PDF files based on data from an Exce
 * * *
 
 Remember that RenameTool3 requires an Excel file with the appropriate names as the foundation for renaming your PDF documents. Ensure that your Excel file is properly formatted and that the necessary fields are filled out correctly. Enjoy your organized and systematically renamed files with just a few clicks!
+
+
+
+# Compatible Files
+
+
+1. **.docx** - Word Document: The standard file format for Microsoft Word documents.
+2. **.txt** - Text File: A simple text format without any formatting.
+3. **.mp3** - MP3 Audio: A common audio format for music and other audio files.
+4. **.pdf** - PDF Document: A format for printable documents that maintains layout and formatting.
+5. **.flac** - FLAC Audio: A lossless audio format, ideal for high-quality audio files.
+6. **.mp4** - MP4 Video: A widely used video format that supports streaming and works well on multiple platforms.
+7. **.avi** - AVI Video: An older video format that supports various codecs.
+8. **.mov** - MOV Video: A video format frequently used by Apple.
+9. **.xlsx** - Excel Document (new): A modern XML-based format for Excel spreadsheets.
+10. **.xls** - Excel Document (old): An older format for Excel spreadsheets.
+11. **.png** - PNG Image: A popular image format that supports transparency.
+12. **.jpeg** - JPEG Image: A common format for digital photos, utilizing lossy compression.
+13. **.gif** - GIF Image: A format used for images and simple animations on the web.
+14. **.zip** - ZIP Archive: A compression and file packaging format.
+15. **.rar** - RAR Archive: Another format for data compression and archiving.
+16. **.html** - HTML File: The standard file format for web pages.
+17. **.css** - CSS File: A style sheet format used for describing the presentation of a document written in HTML or XML.
+18. **.js** - JavaScript File: A file containing JavaScript code, used to make web pages interactive.
+19. **.json** - JSON File: A lightweight data-interchange format, easy for humans to read and write and for machines to parse and generate.
+20. **.svg** - SVG Image: A vector graphic format based on XML, used for high-quality graphics on the web.
+
+
