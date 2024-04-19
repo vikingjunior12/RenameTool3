@@ -123,7 +123,7 @@ Remember that RenameTool3 requires an Excel file with the appropriate names as t
 
 
 
-# Compatible Files
+# Upcoming in a Future Update more Compatible Files
 
 
 1. **.docx** - Word Document: The standard file format for Microsoft Word documents.
