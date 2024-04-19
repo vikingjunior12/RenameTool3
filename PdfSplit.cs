@@ -17,12 +17,21 @@ namespace RenameTool_3
             this.path = path;
         }
 
-        public void Split(int value)
+        public string Split(int value)
         {
-
+            if (value < 1)
+            {
+                value = 1;
+            }
 
             string name = System.IO.Path.GetFileNameWithoutExtension(path);
             var newfolder = System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path) + "\\" + name);
+            if (newfolder.Exists)
+            {
+                newfolder.Delete(true);
+                newfolder = System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(path) + "\\" + name);
+
+            }
             string newpath = newfolder.FullName;
             PdfDocument inputDocument = PdfReader.Open(path, PdfDocumentOpenMode.Import);
 
@@ -39,6 +48,8 @@ namespace RenameTool_3
 
                
             }
+            return newfolder.FullName;
+
         }
     }
 }

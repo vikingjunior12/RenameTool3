@@ -1,0 +1,82 @@
+[MSI]
+ProductGUID={25B51E4F-4620-4201-9EE0-320E414E9063}
+UpgradeGUID={57CD56C6-D052-4B82-95A4-59071F023122}
+ProductName=RenameTool3
+ProductVersion=3.0.0.0
+ProductType=Windows Application
+CompanyName=JLI Software
+ProductIcon=C:\Users\jli1\OneDrive - Careum Bildungszentrum\Scripts Buissnes\Software\RenameTool3\RenameTool 3\folder.ico
+MSIHashType=None
+InstallFolder=[ProgramFiles]\[Company]\[Product]
+MSIName=RenameTool3
+OutputFolder=C:\Users\jli1\Downloads
+Platform=64 Bit Package
+UseUI=0
+EULAPath=
+BannerPath=
+BackgroundPath=
+ExecAfterFinalize=
+PromptAfterExit=
+UISelection=1
+AllUsers=1
+AsAdmin=1
+Certificate=
+CertificateThumbPrint=
+TimeStampURL=http://timestamp.globalsign.com/scripts/timstamp.dll/?signature=sha2
+UseSigningWizard=0
+MinimumPowershellVersion=None
+ModuleOverwrite=0
+ModuleUninstall=1
+ModuleAllUsers=1
+LastVersion=3.0.0.0
+MSILastBuilt=C:\Users\jli1\Downloads\RenameTool3.msi
+[MSI Files]
+File1=.\bin\Release\net8.0-windows7.0\publish\win-x64\PenImc_cor3.dll
+File2=.\bin\Release\net8.0-windows7.0\publish\win-x64\PresentationNative_cor3.dll
+File3=".\bin\Release\net8.0-windows7.0\publish\win-x64\RenameTool 3.dll.config"
+File4=".\bin\Release\net8.0-windows7.0\publish\win-x64\RenameTool 3.exe"
+File5=".\bin\Release\net8.0-windows7.0\publish\win-x64\RenameTool 3.pdb"
+File6=.\bin\Release\net8.0-windows7.0\publish\win-x64\vcruntime140_cor3.dll
+File7=.\bin\Release\net8.0-windows7.0\publish\win-x64\wpfgfx_cor3.dll
+File8=.\bin\Release\net8.0-windows7.0\publish\win-x64\D3DCompiler_47_cor3.dll
+[Package]
+PSBuildVersion=4.8
+[MSIShortcut_1]
+ShortcutName=RenameTool3
+ShortcutDescription=RenameTool3
+ShortcutAdvertised=0
+ShortcutArguments=
+ShortcutTarget=[INSTALLDIR]RenameTool 3.exe
+ShortcutFolder=INSTALLDIR
+ShortcutIconfile=C:\Users\jli1\OneDrive - Careum Bildungszentrum\Scripts Buissnes\Software\RenameTool3\RenameTool 3\bin\Release\net8.0-windows7.0\publish\win-x64\RenameTool 3.exe
+ShortcutIconindex=0
+ShortcutRunMode=Normal
+ShortcutLocation=Desktop
+[MSIShortcut_2]
+ShortcutName=RenameTool3
+ShortcutDescription=RenameTool3
+ShortcutAdvertised=0
+ShortcutArguments=
+ShortcutTarget=[INSTALLDIR]RenameTool 3.exe
+ShortcutFolder=INSTALLDIR
+ShortcutIconfile=C:\Users\jli1\OneDrive - Careum Bildungszentrum\Scripts Buissnes\Software\RenameTool3\RenameTool 3\bin\Release\net8.0-windows7.0\publish\win-x64\RenameTool 3.exe
+ShortcutIconindex=0
+ShortcutRunMode=Normal
+ShortcutLocation=Start Menu\Programs
+[MSI Shortcuts]
+Shortcut1=1
+Shortcut2=2
+[Deploy]
+MainFile=
+Destination=
+[CloudInstall]
+Caption=
+OutFolder=
+ImageList=
+Icon=
+Certificate=
+TimeStamp=
+Thumbprint=
+Platform32=0
+Platform64=0
+PlatformARM=0

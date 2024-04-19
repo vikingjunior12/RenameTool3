@@ -6,11 +6,11 @@
         xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
         xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
         xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI" xmlns:av="http://schemas.microsoft.com/expression/blend/2008"  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Width="1280" Height="720" mc:Ignorable="av" x:Class="RenameTool_3.MainWindow"
-        Title="ADMIN Secure Acces"
+        Title="RenameTool3"
         SizeToContent="Manual" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer2BackgroundBrush}}">
-    <Grid>
+    <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -23,98 +23,145 @@
               Grid.ColumnSpan="2">
         </Grid>
 
-        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                      
-        <StackPanel >
-            <TextBlock Foreground="White" Text="Tweak" FontSize="25" FontWeight="Bold" Margin="10"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" >
+            <Button  Click="openFolder"  Margin="10" Height="27" Width="28" BorderBrush="{x:Null}" Foreground="{x:Null}" >
+                <Button.OpacityMask>
+                    <ImageBrush ImageSource="/folder_file_icon.png"/>
+                </Button.OpacityMask>
+                <Button.Background>
+                    <ImageBrush ImageSource="/folder_file_icon.png" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Button FontSize="10"  Content="Info" Width="50" Height="20" Margin="10"
+                  Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" 
+                  BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green"
+                  adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="12" Click="InfoHub" />
+
         </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"   >
-                <TextBlock Foreground="White" Text="Excel Data 1" FontSize="20" FontWeight="DemiBold" Margin="10"/>
-                <ComboBox x:Name="Value1box" Width="200" Height="30" Margin="10"/>
+        <StackPanel Margin="30" Grid.Row="2" Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+
+
+
+            <StackPanel >
+                <TextBlock Foreground="SkyBlue" FontSize="25" FontWeight="Bold" Margin="10"><Run Text="Option"/><Run Language="de-ch" Text="en"/></TextBlock>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"   >
-                <TextBlock Foreground="White" Text="Excel Data 2" FontSize="20" FontWeight="DemiBold" Margin="10"/>
-                <ComboBox x:Name="Value2box" Width="200" Height="30" Margin="10"/>
-            </StackPanel>
+
 
             <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left"   >
                 <TextBlock Foreground="White" Text="Excel Data 3" FontSize="20" FontWeight="DemiBold" Margin="10"/>
-                <ComboBox x:Name="Value3box" Width="200" Height="30" Margin="10"/>
+                <ComboBox  SelectionChanged="Value3box_SelectionChanged" x:Name="Value3box" Width="200" Height="30" Margin="10"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Foreground="White" Text="Worksheet" FontSize="20" FontWeight="DemiBold" Margin="10"/>
-                <ComboBox x:Name="Worksheetbox" Width="200" Height="30" Margin="23,0,10,0"/>
-            </StackPanel>
+
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Foreground="White" Text="File Typ" FontSize="20" FontWeight="DemiBold" Margin="10"/>
-                <ComboBox Width="200" Height="30" Margin="50,0,10,0"/>
+                <ComboBox SelectionChanged="Datatypebox_SelectionChanged" x:Name="Datatypebox" Width="200" Height="30" Margin="52,0,10,0"/>
             </StackPanel>
 
-           
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left"   >
+                <TextBlock Foreground="White" Text="Save Path" FontSize="20" FontWeight="DemiBold" Margin="10"/>
+                <TextBox IsReadOnly="True" ToolTip="Speicher Ort ändern"  x:Name="safepathbox" Foreground="White" Width="200" Height="30" Margin="34,0,10,0"/>
+                <Button  x:Name="Savepathbutton" ToolTip="Speicher Ort ändern" Click="SavePath" Content="Browse" Width="100" Height="30" Margin="10"
+             Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" 
+             BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green"
+             adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="12" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="White" Text="PDF Split" FontSize="20" FontWeight="DemiBold" Margin="10"/>
+                <ComboBox ToolTip="Ab wie viel Seiten gesplittet werden soll" x:Name="cutbox" Width="200" Height="30" Margin="38,0,10,0" SelectionChanged="cutbox_SelectionChanged"/>
+                <Button Content="PDF" Width="100" Height="30" Margin="10"                        
+           Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" 
+           BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green"
+           adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="12" Click="SplitPDF"/>
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" >
+                <Rectangle Margin="10,30,10,10"  />
+
+            </StackPanel>
 
         </StackPanel >
 
-        <StackPanel Grid.Row="2" Grid.Column="1">
-            <Button Click="ShowData"  Content="Show data" Width="100" Height="30" Margin="10"
+        <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal" >
+
+
+            <Button FontSize="10" Click="ShowData"  Content="Show data" Width="100" Height="20" Margin="10"
                   Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" 
                   BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green"
                   adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="12" />
+            <TextBlock x:Name="Example" Foreground="White" Text="Value1 Value2 Value3 Custom.PDF" FontSize="15" FontWeight="Bold" Margin="10,13,10,10"/>
 
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel >
-                <TextBlock Foreground="White" Text="Rename" FontSize="25" FontWeight="Bold" Margin="10"/>
-            </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" >
+
+        </StackPanel>
+
+        <StackPanel Margin="30" Grid.Row="2" Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"   >
                 <TextBlock Foreground="White" Text="Excel File" FontSize="20" FontWeight="DemiBold" Margin="10"/>
-                <TextBox x:Name="excelpathbox" Foreground="White" Width="200" Height="30" Margin="36,0,10,0"/>
+                <TextBox IsReadOnly="True" x:Name="excelpathbox" Foreground="White" Width="200" Height="30" Margin="38,0,10,0"/>
                 <Button  Content="Browse" Width="100" Height="30" Margin="10"
                         Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" 
                         BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green"
                         adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="12" Click="LoadExcel"/>
             </StackPanel>
 
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left">
+                <TextBlock Foreground="White" Text="Worksheet" FontSize="20" FontWeight="DemiBold" Margin="10"/>
+                <ComboBox SelectionChanged="Worksheetbox_SelectionChanged" x:Name="Worksheetbox" Width="200" Height="30" Margin="23,0,10,0"/>
+            </StackPanel>
+
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"   >
-                <TextBlock Foreground="White" Text="File Rename" FontSize="20" FontWeight="DemiBold" Margin="10"/>
-                <TextBox x:Name="targetpathbox" Foreground="White" Width="200" Height="30" Margin="10"/>
+                <TextBlock Foreground="White" Text="Excel Data 1" FontSize="20" FontWeight="DemiBold" Margin="10"/>
+                <ComboBox  SelectionChanged="Value1box_SelectionChanged" x:Name="Value1box" Width="200" Height="30" Margin="13,10,10,10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"   >
+                <TextBlock Foreground="White" Text="Excel Data 2" FontSize="20" FontWeight="DemiBold" Margin="10"/>
+                <ComboBox SelectionChanged="Value2box_SelectionChanged" x:Name="Value2box" Width="200" Height="30" Margin="10"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left"   >
+                <TextBlock Foreground="White" Text="Custom" FontSize="20" FontWeight="DemiBold" Margin="10"/>
+                <TextBox  ToolTip="Optional: Zusatz Text eingeben" adonisExtensions:WatermarkExtension.Watermark="Text eingeben ..."   TextChanged="CustomTextbox_TextChanged" x:Name="CustomTextbox" Margin="52,0,10,0"  Width="200" Height="30" />
+                <Button x:Name="SetCustomTextbutton"  Content="Set" Width="100" Height="30" Margin="10"
+                        Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" 
+                        BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green"
+                        adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="12" Click="SetTextButton"/>
+
+            </StackPanel>
+
+
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"   >
+                <TextBlock Foreground="White" Text="Target Files" FontSize="20" FontWeight="Bold" Margin="10"/>
+                <TextBox ToolTip="Ziel Datei oder Ordner auswählen, wenn Auto Split aktiv werden PDFs direkt gesplittet." IsReadOnly="True" x:Name="targetpathbox" Foreground="White" Width="200" Height="30" Margin="15,10,10,10"/>
                 <Button Content="Browse" Width="100" Height="30" Margin="10"
                         Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" 
                         BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green"
                         adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="12" Click="Targetfiles"/>
+                <CheckBox Checked="Splitcheckbox_Checked" Unchecked="Splitcheckbox_Unchecked" x:Name="Splitcheckbox" Content="PDF Auto Split" Margin="10"/>
+
             </StackPanel>
 
+            <StackPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="left" >
+                <Button Click="RenameButton"  Content="Rename" Width="100" Height="30" Margin="190,40,10,10"
+                  Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.AccentInteractionBrush}}" 
+                  BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green"
+                  adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="12" />
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Foreground="White" Text="PDF Split" FontSize="20" FontWeight="DemiBold" Margin="10"/>
-                <ComboBox x:Name="cutbox" Width="200" Height="30" Margin="40,0,10,0" SelectionChanged="cutbox_SelectionChanged"/>
-                <Button Content="Browse" Width="100" Height="30" Margin="10"                        
-             Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" 
-             BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green"
-             adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="12" Click="SplitPDF"/>
-
-                <CheckBox Content="auto Split" Margin="10"/>
             </StackPanel>
-
-            <StackPanel Orientation="Horizontal"  HorizontalAlignment="Left"   >
-                <TextBlock Foreground="White" Text="Path" FontSize="20" FontWeight="DemiBold" Margin="10"/>
-                <TextBox Foreground="White" Width="200" Height="30" Margin="78,0,10,0"/>
-                <Button Content="Browse" Width="100" Height="30" Margin="10"
-                        Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" 
-                        BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green"
-                        adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="12"/>
-                
-            </StackPanel>
-
-
-
-
-
 
 
         </StackPanel>

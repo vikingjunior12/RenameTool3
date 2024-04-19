@@ -1,0 +1,40 @@
+﻿<adonisControls:AdonisWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:RenameTool_3"
+        xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
+        xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI" xmlns:av="http://schemas.microsoft.com/expression/blend/2008" Height="215" Width="350"  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="InfoWindow" mc:Ignorable="av" x:Class="RenameTool_3.Info"
+        SizeToContent="Manual" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}">
+    <adonisControls:AdonisWindow.TitleBarContent>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="?"
+                    Style="{DynamicResource {x:Static adonisUi:Styles.WindowButton}}"
+                    FontFamily="Segoe UI"
+                    FontSize="14"/>
+        </StackPanel>
+    </adonisControls:AdonisWindow.TitleBarContent>
+    <adonisControls:AdonisWindow.Style>
+        <Style TargetType="{x:Type Window}" BasedOn="{StaticResource {x:Type Window}}"/>
+    </adonisControls:AdonisWindow.Style>
+    <Viewbox>
+        <Grid>
+            <WrapPanel Orientation="Vertical"  HorizontalAlignment="Left"  >
+                <TextBlock Foreground="{DynamicResource {x:Static adonisUi:Brushes.Layer4InteractionForegroundBrush}}" Text="RenameTool3"  FontWeight="Bold" FontSize="10" Margin="2" FontFamily="MS UI Gothic" />
+                <TextBlock Foreground="{DynamicResource {x:Static adonisUi:Brushes.Layer4InteractionForegroundBrush}}" Text="Version: 3.0" FontSize="5" Margin="2,2,2,2" FontFamily="MS UI Gothic" />
+                <TextBlock Foreground="{DynamicResource {x:Static adonisUi:Brushes.Layer4InteractionForegroundBrush}}" Text="Code: C#" FontSize="5" Margin="2,2,2,2" FontFamily="MS UI Gothic" />
+                <TextBlock Foreground="{DynamicResource {x:Static adonisUi:Brushes.Layer4InteractionForegroundBrush}}" Text="Autor: Jonas Lindström" FontSize="5" Margin="2,2,2,2" FontFamily="MS UI Gothic" />
+                <WrapPanel Orientation="Horizontal" >
+                    <TextBlock Foreground="{DynamicResource {x:Static adonisUi:Brushes.Layer4InteractionForegroundBrush}}" Text="Infos:" FontSize="5" Margin="2,2,2,2" FontFamily="MS UI Gothic" />
+                    <TextBlock FontSize="5" Margin="0,2,2,2" FontFamily="MS UI Gothic" >
+                    <Hyperlink Foreground="{DynamicResource {x:Static adonisUi:Brushes.Layer4InteractionForegroundBrush}}" NavigateUri="https://github.com/vikingjunior12/RenameTool3" RequestNavigate="Hyperlink_RequestNavigate">
+                     Github</Hyperlink>
+                    </TextBlock>
+                </WrapPanel>
+                
+            </WrapPanel>
+        </Grid>
+    </Viewbox>
+</adonisControls:AdonisWindow>

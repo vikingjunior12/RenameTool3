@@ -1,12 +1,4 @@
 ﻿using ClosedXML.Excel;
-using DocumentFormat.OpenXml.Bibliography;
-using DocumentFormat.OpenXml.Drawing;
-using DocumentFormat.OpenXml.Spreadsheet;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace RenameTool_3
@@ -14,6 +6,7 @@ namespace RenameTool_3
     class Excel
     {
         string path { get; set; }
+    
 
 
         public Excel(string path)
@@ -21,11 +14,23 @@ namespace RenameTool_3
             this.path = path;
         }
 
-        public List<string> FirstRow()
+        public List<string> FirstRow(string worksheetvalue = default)
         {
+            var worksheet = default(IXLWorksheet);
             using (var workbook = new XLWorkbook(path))
             {
-                var worksheet = workbook.Worksheet(1);
+              
+                // eror handling noch einbauen fallsm Workssheet nicht existiert
+                if (worksheetvalue == default)
+                {
+                     worksheet = workbook.Worksheet(1);
+
+
+                }
+                else
+                {
+                     worksheet = workbook.Worksheet(worksheetvalue);
+                }
 
                 var firstRowUsed = worksheet.FirstRowUsed();
 
@@ -55,49 +60,47 @@ namespace RenameTool_3
         }
 
 
-        public List<string> Data(string worksheetName, string value1, string value2, string value3)
+        public List<Renameinfos> Data(string worksheetName, string value1, string value2, string value3 = default, string customtext = default)
         {
-            var dataList = new List<string>();
+            List<Renameinfos> renameInfosList = new List<Renameinfos>();
 
             using (var workbook = new XLWorkbook(path))
             {
                 var worksheet = workbook.Worksheet(worksheetName);
                 var firstRow = worksheet.FirstRowUsed();
+                var firstCell = firstRow.FirstCellUsed();
+                var value_1 = worksheet.FirstRow().CellsUsed().First(c => c.Value.ToString() == value1).WorksheetColumn().ColumnNumber();
+                var value_2 = worksheet.FirstRow().CellsUsed().First(c => c.Value.ToString() == value2).WorksheetColumn().ColumnNumber();
+                var value_3 = value3 != default ? worksheet.FirstRow().CellsUsed().First(c => c.Value.ToString() == value3).WorksheetColumn().ColumnNumber() : default;
 
-                // Finden Sie die Spaltennamen, die den angegebenen Werten entsprechen
-                string column1 = null, column2 = null, column3 = null;
-                foreach (var cell in firstRow.CellsUsed())
+                //Value 3 ist freiwilig, eingbautes IF, quasi if nicht default dann
+
+                foreach (var row in worksheet.RowsUsed())
                 {
-                    if (cell.Value.ToString() == value1)
-                        column1 = cell.Address.ColumnLetter;
+                    var zelle = row.Cell(value_1);
+                    var zelle2 = row.Cell(value_2);
+                    var zelle3 = value3 != default ? row.Cell(value_3) : default;
+                    var customtextvalue = customtext != default ? customtext : default;
 
-                    if (cell.Value.ToString() == value2)
-                        column2 = cell.Address.ColumnLetter;
-
-                    if (cell.Value.ToString() == value3)
-                        column3 = cell.Address.ColumnLetter;
-                }
-
-                // Überprüfen Sie, ob alle Spalten gefunden wurden
-                if (column1 == null || column2 == null || column3 == null)
-                    return dataList; // oder werfen Sie eine Ausnahme
-
-                // Durchlaufen Sie die restlichen Zeilen und extrahieren Sie die Daten
-                foreach (var row in worksheet.RowsUsed().Skip(1)) // Skip(1) um die Kopfzeile zu überspringen
-                {
-                    var cell1 = row.Cell(column1);
-                    var cell2 = row.Cell(column2);
-                    var cell3 = row.Cell(column3);
-
-                    if (cell1.Value.ToString() != "" && cell2.Value.ToString() != "" && cell3.Value.ToString() != "")
+                    if (zelle.GetValue<string>() != value1 && (zelle2.GetValue<string>() != value2)) // Überspringen der Überschrift
                     {
-                        dataList.Add($"{cell1.Value}, {cell2.Value}, {cell3.Value}");
+                        // Erstellen Sie ein neues Renameinfos-Objekt und fügen Sie es zur Liste hinzu
+                        renameInfosList.Add(
+                            new Renameinfos(zelle.GetValue<string>(),
+                            zelle2.GetValue<string>(),
+                            zelle3?.GetValue<string>()
+
+                            ));
+
                     }
+
+
                 }
             }
 
-            return dataList;
+            return renameInfosList;
         }
+
 
 
 

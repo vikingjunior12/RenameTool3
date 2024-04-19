@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:RenameTool_3"
         xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
         xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
-        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI" xmlns:av="http://schemas.microsoft.com/expression/blend/2008" Height="898" Width="967"  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="Settings" mc:Ignorable="av" x:Class="RenameTool_3.Excelview"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI" xmlns:av="http://schemas.microsoft.com/expression/blend/2008" Height="720" Width="386"  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="Settings" mc:Ignorable="av" x:Class="RenameTool_3.Excelview"
         SizeToContent="Manual" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer1BackgroundBrush}}">
     <adonisControls:AdonisWindow.TitleBarContent>
         <StackPanel Orientation="Horizontal"
@@ -20,30 +20,35 @@
         <Style TargetType="{x:Type Window}" BasedOn="{StaticResource {x:Type Window}}"/>
     </adonisControls:AdonisWindow.Style>
     <Viewbox >
-        <Grid Height="146">
-            <WrapPanel Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <ListView FontSize="8" x:Name="Excelliste" av:ItemsSource="{Binding LoadedAdminUsers}" Height="101" Width="171"  >
+        <Grid>
 
-                    <ListView.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black"/>
-                            <GradientStop Color="#FF484848" Offset="1"/>
-                        </LinearGradientBrush>
-                    </ListView.Background>
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn/>
-                        </GridView>
-                    </ListView.View>
+            <WrapPanel Orientation="Vertical">
 
-                </ListView>
+                <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ListView Height="300" FontSize="8" x:Name="Excelliste" av:ItemsSource="{Binding liste}">
+                        <ListView.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FF484848" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ListView.Background>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Value 1" DisplayMemberBinding="{Binding value1}" />
+                                <GridViewColumn Header="Value 2" DisplayMemberBinding="{Binding value2}"/>
+                                <GridViewColumn Header="Value 3" DisplayMemberBinding="{Binding value3}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </WrapPanel>
+
+                <!--<WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,5,0,10" >
+                    <Button FontSize="8" Margin="5" Content="Add"  Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green" adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="8"/>
+                    <Button FontSize="8" Margin="5" Content="Del"  Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Red" adonisExtensions:RippleExtension.BorderBrush="Red" adonisExtensions:RippleExtension.ForegroundBrush="Red" adonisExtensions:CornerRadiusExtension.CornerRadius="8"  HorizontalAlignment="Left"  VerticalAlignment="Top"  />
+                    <TextBox Width="90" FontSize="8" Margin="5" x:Name="Textbox"   adonisExtensions:WatermarkExtension.Watermark="Admin hinzufügen..." TextWrapping="Wrap" Text=""  />
+                </WrapPanel>-->
+
             </WrapPanel>
-            <WrapPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0,5,0,10" >
-                <Button FontSize="8" Margin="5" Content="Add"  Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Green" adonisExtensions:RippleExtension.BorderBrush="Green" adonisExtensions:RippleExtension.ForegroundBrush="White" adonisExtensions:CornerRadiusExtension.CornerRadius="8"/>
-                <Button FontSize="8" Margin="5" Content="Del"  Style="{DynamicResource {x:Static adonisUi:Styles.AccentButton}}" Background="{DynamicResource {x:Static adonisUi:Brushes.Layer3BackgroundBrush}}" BorderBrush="{DynamicResource {x:Static adonisUi:Brushes.Layer3BorderBrush}}" adonisExtensions:RippleExtension.BackgroundBrush="Red" adonisExtensions:RippleExtension.BorderBrush="Red" adonisExtensions:RippleExtension.ForegroundBrush="Red" adonisExtensions:CornerRadiusExtension.CornerRadius="8"  HorizontalAlignment="Left"  VerticalAlignment="Top"  />
-                <TextBox Width="90" FontSize="8" Margin="5" x:Name="Textbox"   adonisExtensions:WatermarkExtension.Watermark="Admin hinzufügen..." TextWrapping="Wrap" Text=""  />
-            </WrapPanel>
-
 
         </Grid>
     </Viewbox>
